@@ -17,7 +17,11 @@ class Program
 {//Start of code for the class
     //Every applaiction has a program called main
     //main is where every application starts
-    static void Main(string[] args)
+    static void Main(string[] args) //Method signature
+    //A method is a self contained set of code that performs a funtion
+    //Also know as a funtion or program
+    //Every application has one and only one main method
+    //Main() is where every application starts
     {
         //This code will display anything between the ""
         Console.WriteLine("Hello, World!");
