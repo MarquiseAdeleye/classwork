@@ -53,7 +53,7 @@ class Program
         
         
         //Define the variables to hold the numbers
-        int numberOne = 0;
+        int numberOne = 0; //Since we will be using math
         int numberTwo = 0;
         int numberThree = 0;
         
@@ -63,12 +63,30 @@ class Program
         //Ask for the numbers one at a time using the C# Console Object
         //Which represents the keyboard and screen
         Console.WriteLine("Please enter a number:"); //Asking for the number
-        string aLine; //String to hold the line of input from the users
-        aLine = Console.ReadLine(); //Get a line from the keyboard
+        string theResponse; //String to hold the line of input from the users
+        theResponse = Console.ReadLine(); //Get a line from the keyboard
         //Convert from string to an int
-        numberOne = int.Parse(aLine);
+        numberOne = int.Parse(theResponse);
         
+        //Just to verify we are getting data from the keyboard 
+        //Display it
         Console.WriteLine("You entered " + numberOne);
+        
+        Console.WriteLine("Please enter a number:");
+        theResponse = Console.ReadLine(); //Reuse theResponse defined above
+        numberTwo = int.Parse(theResponse);
+        
+        Console.WriteLine("Please enter a number:");
+        theResponse = Console.ReadLine();
+        numberThree = int.Parse(theResponse);
+        
+        //Add the numbers together
+        sum = numberOne + numberTwo + numberThree;
+        
+        //Display the sum to the user
+        Console.WriteLine("The sum is: " + sum);
+        
+        
         Console.WriteLine("------Ending Program------");
     }
 }
