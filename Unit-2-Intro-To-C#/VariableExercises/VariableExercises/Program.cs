@@ -48,6 +48,20 @@ class Program
         Console.WriteLine("The product is " + (number1 * number2));
         */
         
+        /*
+        //1.6
+        Console.WriteLine("Enter a number: ");
+        int number1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter another number:");
+        int number2 = int.Parse(Console.ReadLine());
+        Console.WriteLine("The result is " + (number1 / number2));
+        */
+        
+        //1.7
+        Console.WriteLine("Enter a boolean: ");
+        var input = Boolean.Parse(Console.ReadLine());
+        Console.WriteLine("The boolean you entered is: " + input);
+        Console.WriteLine("The opposite boolean is: " + !input);
         
         
         Console.WriteLine("------------End of Program------------");
