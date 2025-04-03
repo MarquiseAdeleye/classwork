@@ -36,10 +36,19 @@ class Program
         double number1 = double.Parse(Console.ReadLine());
         Console.WriteLine("Enter another number:");
         double number2 = double.Parse(Console.ReadLine());
-        Console.WriteLine(number1 + number2);
+        Console.WriteLine("The sum is " + (number1 + number2));
         */
         
+        /*
         //1.5
+        Console.WriteLine("Enter a number: ");
+        double number1 = double.Parse(Console.ReadLine());
+        Console.WriteLine("Enter another number:");
+        double number2 = double.Parse(Console.ReadLine());
+        Console.WriteLine("The product is " + (number1 * number2));
+        */
+        
+        
         
         Console.WriteLine("------------End of Program------------");
     }
