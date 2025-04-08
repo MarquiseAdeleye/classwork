@@ -37,7 +37,14 @@ class Program
 
         // Add the numbers together create a sum/total
         sum = number1 + number2 + number3;
-       
+
+        int[] num = [3];
+
+        for (int i = 0; i < num.Length; i++)
+        {
+            num[i] = int.Parse(Console.ReadLine());
+        }
+        
         // Tell the requester the sum/total (display)
         Console.WriteLine("The sum is: " + sum);
 
