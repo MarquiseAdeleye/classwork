@@ -5,10 +5,10 @@ using System;
 class Program
     {
         /**************************************************************************************
-         * This app will receive up to 10 numbers from the user
+         * This app will receive up to 5 numbers from the user
          *
          * After the user has indicated they have no more numbers to enter
-         *             or 10 numbers have been entered...
+         *             or 5 numbers have been entered...
          *               
          * We will display each or the numbers entered with an indicator if number odd or even,
          *                 their sum and average
@@ -26,6 +26,10 @@ class Program
             Console.WriteLine("\nWelcome to my app!");       // Verify the app started
 
             // Define a constant to use to reference the size of the array
+            //Const marks the variable as a constant
+            // constant connot be changed once it is assigned
+            //constant names should be UPPERCASE with _ to separate the parts of names
+            //const means that you can't change a name once a variable is assigned
             const int ARRAY_SIZE = 5;  // use this every where you want to code the size of the array
 
             // Define an array to hold up to 10 numbers entered by the user
@@ -40,16 +44,21 @@ class Program
             // Define a variable to hold the number of variables entered by the user
             int numberEntered = 0;
 
+            //When you need to process an array from start to end
+            //Use a for-loop
+            //for(int i=0; i<size-of-array; i++) - use i as the array inside the loop
+            
             // Set up a loop to get ARRAY_SIZE numbers, one at a time or responses indicating the user is done
             for (int i = 0; i < ARRAY_SIZE; i++)
             {
-                if (!moreInput()) // if they don't have any more input...
+                // if (moreInput != true)
+                if (!moreInput()) // if they don't have any more input...moreInput() is a method and will return a true or a false
                 {
-                    break;  // exit the for-loop
+                    break;  // exit the for-loop before it has gone through all iterations
                 }
                 // At this point we know the user has a number to enter
 
-                // Call the method to get a numeric value
+                // Call the method to get a numeric value and store it in the current array element indicated by i
                 theNumbers[i] = GetANumber();  // get the number and store in the next array element
 
                 numberEntered++;  // Count a number being entered
@@ -69,6 +78,9 @@ class Program
             // Only process the numbers that were entered. i.e. NOT arrayname.length
             for (int i = 0; i < numberEntered; i++)
             {
+                
+                //The ternary operator: condition ? value  if true : value if false
+                //Is the number in the array evenly divisable by 2
                 Console.WriteLine("Element #: " + i + " is: " + theNumbers[i] 
                                 + " it is " + (theNumbers[i] % 2 == 0 ? "Even" : "Odd"));
 
@@ -88,7 +100,7 @@ class Program
          * Helper methods used by Main()
          ******************************************************************/
 
-        // return a boolean value to indicate if teh user has more input
+        // return a boolean value to indicate if the user has more input
         static bool moreInput()
         {
             bool   isThereInput  = false;  // Hold teh return value 
@@ -97,14 +109,17 @@ class Program
 
             bool   getInput      = true;   // Control the user interaction loop
 
+            //A do-while loop will run at least once 
             do
             {
                 // Ask the user if they have any numbers to enter (Y/N)
                 Console.WriteLine("Do you have any numbers to enter (Y/N)?");
                 whatUserTyped = Console.ReadLine();
 
+                //Converts user input to uppercase
                 whatUserTyped = whatUserTyped.ToUpper();
 
+                //Extract the first character from the user input
                 string firstChar = whatUserTyped.Substring(0, 1);
 
                 if (firstChar == "Y")
@@ -148,6 +163,15 @@ class Program
 
                 // Get the input from the user
                 string userInput = Console.ReadLine();
+                
+                //You can handle an exceptions if is coccurs and let the program continue
+                //with a try/catch blocks
+                
+                //You put code that might cause an Exceptions in a try block try{}
+                //followed by on or more catch blocks for the exception
+                //catch(exceptions to handle name for exception objects)
+                
+                //The Exception object contains information 
 
                 try // We want to handle an Exception that might occur in this block of code
                 {
