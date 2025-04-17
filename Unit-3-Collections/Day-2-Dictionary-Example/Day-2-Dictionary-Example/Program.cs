@@ -21,8 +21,8 @@ namespace Day_2_Dictionary_Example
             //
             // Syntax:   Dictionary<key-type, value-type> = new Dictionary<key-type, value-type)
 
-         // data-type<key-type, value-type> name = new data-type<key-type, value>();  
-            Dictionary<string, int> personInfo   = new Dictionary<string, int>();
+            // data-type<key-type, value-type> name = new data-type<key-type, value>();  
+            Dictionary<string, int> personInfo = new Dictionary<string, int>();
 
             // Add some people and their zip codes
             //
@@ -30,10 +30,10 @@ namespace Day_2_Dictionary_Example
             //
             // dictionaryName.Add(key, value) 
 
-            personInfo["Frank"]  = 85339;
-            personInfo["Kirk"]   = 48009;
+            personInfo["Frank"] = 85339;
+            personInfo["Kirk"] = 48009;
             personInfo["Spock"] = 15658;
-            personInfo["Bones"]   = 49116;
+            personInfo["Bones"] = 49116;
 
             personInfo.Add("Jenna", 85339);
 
@@ -44,15 +44,15 @@ namespace Day_2_Dictionary_Example
             // Specifying a key that already exists in the Dictionary
             // when using .Add() an exception is thrown if key already exists
             // So to avoid this and still use .Add() check to see if teh key already
-            //       exists in Dictionary and only do teh .Add if it is not
+            //       exists in Dictionary and only do the .Add if it is not
             // if the key value is NOT in the dictionary...
             if (!personInfo.ContainsKey("Frank"))
             {
-                personInfo.Add("Frank", 06082);  // Add it
+                personInfo.Add("Frank", 06082); // Add it
             }
             else // If key IS already in the Dictionary
             {
-                personInfo["Frank"] = 06082;    // Update its value
+                personInfo["Frank"] = 06082; // Update its value
             }
 
             Console.WriteLine("Kirk lives in: " + personInfo["Kirk"]);
@@ -76,12 +76,43 @@ namespace Day_2_Dictionary_Example
             // use the KeyValuePair object in the foreach
             //
             // KeyValuePair<key-type, value-type> name-for-dictionary-entry
+            //
+            //KeyValuePair returns the key and assoiciated value form the dictionary
+            // .Key to access the key
+            // .Value to access the value
+            //
 
+            // Get each key/value pair and store it in the variable called anEntry
             foreach (KeyValuePair<string, int> anEntry in personInfo)
             {
                 Console.WriteLine(anEntry.Key + " lives in zip code " + anEntry.Value);
             }
-                 
+            //Ask the user for a name and grade
+            //Store in a dictionary
+
+           
+                //Dictionary to hold name(key) and grade (value)
+                Dictionary<string, double> gradeBook = new Dictionary<string, double>();
+                for (int i = 0; i < 10; i++)
+                {
+                Console.Write("Enter name: ");
+                string studentName = Console.ReadLine();
+
+                Console.WriteLine("Enter grade: ");
+                double grade = double.Parse(Console.ReadLine());
+
+
+                // Add the data to our dictionary
+                
+                //Dictionary[Key] = value
+                gradeBook[studentName] = grade; // gradeBook.Add(name, grade) // may cause exception
+            }
+
+            foreach (KeyValuePair<string, double> anEntry in gradeBook)
+            {
+                Console.WriteLine(anEntry.Key + " Has a grade of : " + anEntry.Value);
+            }
+
             Console.WriteLine("Please press enter to end program...");
             Console.Read();
         }
