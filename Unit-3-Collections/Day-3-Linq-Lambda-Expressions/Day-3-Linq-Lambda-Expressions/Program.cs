@@ -4,6 +4,7 @@ using System;                      // Give me access to C# System
 using System.Collections.Generic;  // Give me access to C# Collections stuff
 using System.Linq;                 // Give me access to the LINQ
 
+//Removed the internal atribut as this is the only program that uses this class
 internal class Program
 {
     // Data defined outside of any method (including Main())
@@ -29,11 +30,11 @@ internal class Program
 
         WriteSeparatorLine("Find an Entry");
 
-        while (true)
+        while (true) //Set up a forever loop
         {
             if (!moreInput())
             {
-                break;
+                break; //Break out of loop based on a condition
             }
 
             Console.Write("\nEnter value to search for: ");
@@ -70,6 +71,7 @@ internal class Program
             //
             // Note use of var type to hold the result of .Where()
 
+            
             var matchingEntries =
                 starFleetPersonnel.Where(anEntry => anEntry.ToLower().Contains(searchString.ToLower()));
 
@@ -95,7 +97,9 @@ internal class Program
         // First() will throw an Exception if there is no match in the List
         //var theFirstOne = starFleetPersonnel.First(aLine => aLine.ToUpper().Contains(whatTheyWant.ToUpper()));
         var theFirstOne = starFleetPersonnel.FirstOrDefault(aLine => aLine.ToUpper().Contains(whatTheyWant.ToUpper()));
-
+//Using string interpolation to construct a string for the the write line which is an alternative for using +
+// $"words {variable}" = the value in the variable replaces the {variable} in the string
+//'\n' generates a new line                                                      if we found a match  ? Use it       else use "none"                                          
         Console.WriteLine($"\nThe first occurence of {whatTheyWant} is in: " + ((theFirstOne != null) ? theFirstOne : "None"));
 
 
@@ -122,7 +126,7 @@ internal class Program
 
         WriteSeparatorLine("Sorting the List");
 
-        // Sort the List
+        // Sort the List - since string ther are not individual pieces to sort
         var sortList = starFleetPersonnel.OrderBy(aline => aline);
 
         foreach (string aLine in sortList)
@@ -242,7 +246,7 @@ internal class Program
                     isThereInput = false;
                 }
             }
-        } while (getInput); // Loop while we get input
+        } while (getInput); // Loop while we get input (Loop based on loop control variable)
 
         return isThereInput;
 
