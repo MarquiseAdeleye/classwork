@@ -28,11 +28,12 @@ class Program
     scores.Add(80);
     
     List<int> scores2 = new List<int>();
-    scores.Add(100);
-    scores.Add(100);
-    scores.Add(100);
+    scores2.Add(100);
+    scores2.Add(100);
+    scores2.Add(100);
 
     // Instantiate a Student using the data we want to store in the Student object
+    //ClassName objectName = new ClassName(initial-name, initial-scores)
     Student aStudent = new Student("Frank", scores);
     Student aStudent2 = new Student("Marquise", scores2);
     
@@ -46,6 +47,17 @@ class Program
     aStudent.ShowStudent();
     aStudent2.ShowStudent();
     
+    
+    //Define a student with no scores
+    Student johnTheStudent = new Student("John");
+
+    johnTheStudent.AddScore(75);
+    johnTheStudent.AddScore(90);
+    johnTheStudent.AddScore(85);
+    
+    johnTheStudent.ShowStudent();
+    Console.WriteLine($"\nThe sum of scores: {johnTheStudent.SumOfScores()}");
+
     //Console.WriteLine(aStudent.studentName);
     }
 }
