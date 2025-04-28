@@ -75,6 +75,14 @@ class Program
     Console.WriteLine($"\nThe sum of scores: {johnTheStudent.SumOfScores()}");
     Console.WriteLine($"\nThe avg of scores: {johnTheStudent.AvgOfScores()}");
 
-    //Console.WriteLine(aStudent.studentName);
+    
+    //I want to see just the name of a student 
+    
+    Console.WriteLine(aStudent.GetStudentName());
+    
+    
+    //Change the Student Name
+    aStudent.SetStudentName("Pete");
+    aStudent.ShowStudent();
     }
 }
