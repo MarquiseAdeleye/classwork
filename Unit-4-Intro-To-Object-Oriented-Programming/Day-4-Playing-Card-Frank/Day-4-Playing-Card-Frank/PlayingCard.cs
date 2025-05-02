@@ -43,6 +43,15 @@
                                         //          value is keyword representing the value assigned        
         }
 
+        public string CardSuit { 
+            get { return cardSuit; }
+            set { cardSuit = value;} 
+        } //Property for Suit
+        public string CardColor {
+            get { return cardColor; }
+            set { cardColor = value;}  
+        } //Property for Color
+
         /*********************************************************************
          * Method members (functions that operate on the class data)
          *********************************************************************/
@@ -70,7 +79,7 @@
 
         public PlayingCard(PlayingCard sourceCard)
         {
-            cardColor = sourceCard.cardColor;
+            cardColor = sourceCard.cardColor; //Assign the source value to the new value
             cardSuit  = sourceCard.cardSuit;
             cardValue = sourceCard.cardValue;
         }
