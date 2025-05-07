@@ -1,10 +1,9 @@
 ﻿using GeneralPurposeFunctions;
 using System;
 
-
-namespace Day_3_Inheritance
+namespace Day_5_Inheritance_Example
 {
-    internal class Program
+   class Program
     {
         // Instantiate a copy of the code in CommonlyUsedFunctions called myFuncs
         // It's static because its used in Main() which is static
@@ -117,6 +116,11 @@ namespace Day_3_Inheritance
 
             myFuncs.PauseProgram();
             
+<<<<<<< HEAD:Unit-4-Intro-To-Object-Oriented-Programming/Day-5-Inheritaance-Example/Day-5-Inheritaance-Example/Program.cs
+=======
+            myFuncs.WriteSeparatorLine("Thanks for trying out our first OOP application!");
+            myFuncs.PauseProgram();
+>>>>>>> 2645ef0776f2bfbc620f64cdf6b9863973650ab7:Unit-4-Intro-To-Object-Oriented-Programming/Day-5-Inheritance-Example-V1/Day-5-Inheritance-Example/Program.cs
         }
     }
 }
