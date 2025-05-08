@@ -14,27 +14,41 @@ namespace Day_5_Inheritance_Example
     public class AmericanPlayingCard : PlayingCard  // Indicate PlayingCard is our base class
     {
         // We get access to all the data and methods in the base class PlayingCard
+        // (So we don't need to define them again)
 
         /*************************************************************************************
          * Additional data required by the subclass
          ************************************************************************************/
+        //Constants are used to facilitate coding and understanding
+        //(C# coding convention: CONSTANT_NAMES - All uppercase; words separated by underscores)
+        //const indicates this data item is a constant - cannot be changed once assigned a value
         private const int    DEFAULT_CARD_VALUE = 0;
         private const string DEFAULT_COLOR      = "Black";
         private const string DEFAULT_SUIT       = "Joker";
         private const int    MAX_CARD_VALUE     = 13;   // King
         private const int    MIN_CARD_VALUE     = 0;    // Joker
 
+        //Dictionary will associate suits and colors
         private Dictionary<string, string> suitsColors = new Dictionary<string, string>();
 
+        //So we can use names for the card values - indexes are the card values
+        //(defined for ease of use)
         private string[] cardValueName =//   0       1       2       3       4        5       6       7
                                         { "Joker", "Ace" , "Two", "Three", "Four" , "Five", "Six", "Seven",
                                           "Eight", "Nine", "Ten", "Jack" , "Queen", "King"
                                         //   8        9      10     11        12      13
                                         };
 
+        //A Subclass condtructor MUST call its superclass constructor
+        //to ensure the super class data is initiated
+        
+        //base() represents a base class constructor
+        
         // Default Constructor for an AmericanPlayingCard
         //     it must call the base() to initialize the base class
+        //The super class has only a 3-arg ctor so we have to call it to initialize the super class data
 
+        //     this-class-ctor       : super-class ctor
         public AmericanPlayingCard() : base(DEFAULT_CARD_VALUE, DEFAULT_SUIT, DEFAULT_COLOR) {}
 
         // 2-arg Constructor for an AmericanPlayingCard

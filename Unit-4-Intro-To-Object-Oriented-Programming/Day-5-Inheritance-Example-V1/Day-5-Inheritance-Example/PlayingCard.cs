@@ -121,6 +121,7 @@ namespace Day_5_Inheritance_Example
          **************************************************************************************/
 
         // Override the default ToString() method
+        // The Default returns the namespace.className
         // We MUST be sure the method signature matches the method we are overriding
         // An override is substituting your processing for the default processing
 
@@ -144,7 +145,12 @@ namespace Day_5_Inheritance_Example
         }
 
         // Equals returns true to data members of two objects are equal
-        public override bool Equals(object otherObject)
+        
+        // THe keyword this represents the object used to invoke the method
+        
+        // In the class method: this represents the object to the left of the dot
+        // To execute a class method:  object.method(parameters)
+        public override bool Equals(object otherObject)// NOte the parameter is a generic object type
         {
             if (otherObject.GetType() != this.GetType())  // If types differ...
             {

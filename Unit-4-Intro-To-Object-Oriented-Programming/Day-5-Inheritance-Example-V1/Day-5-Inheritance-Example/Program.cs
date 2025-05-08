@@ -35,7 +35,7 @@ namespace Day_5_Inheritance_Example
             // PlayingCard newCard = aCard;  // This makes both newCard and aCard point to the same object
             PlayingCard newCard = new PlayingCard(aCard); // Use copy constructor
 
-            Console.WriteLine($"  aCard is: {aCard}");
+            Console.WriteLine($"  aCard is: {aCard}"); // Returns the string because of the .ToString override method
             Console.WriteLine($"newCard is: {newCard}");
 
             /*************************************************************************
@@ -109,18 +109,27 @@ namespace Day_5_Inheritance_Example
             myFuncs.WriteSeparatorLine("Compare two AmericanPlayingCards");
 
             Console.Write($"1st card: {usaCard1.CardValue} ({usaCard1.GetCardValueName()}) of {usaCard1.CardSuit}");
-            
+            //                        (condition)       ?value-it-true: value-if-false
             Console.Write($"{(usaCard1.Equals(usaCard2) ? " is EQUAL" : " is NOT equal")} to");
 
             Console.Write($" 2nd card: {usaCard2.CardValue} ({usaCard2.GetCardValueName()}) of {usaCard2.CardSuit}\n");
 
+            myFuncs.WriteSeparatorLine("Italian Card Stuff follows");
+            
+            //Define 2 of coins
+            ItalianPlayingCard anItalianCard = new ItalianPlayingCard(2, "Coins", "Yellow");
+            
+            ItalianPlayingCard anItalianCard2 = new ItalianPlayingCard(10, "Swords", "Red");
+            
+            Console.WriteLine($"anItalianCard: {anItalianCard}");
+            Console.WriteLine($"anItalianCard2: {anItalianCard2}");
+            
             myFuncs.PauseProgram();
             
-<<<<<<< HEAD:Unit-4-Intro-To-Object-Oriented-Programming/Day-5-Inheritaance-Example/Day-5-Inheritaance-Example/Program.cs
-=======
+
             myFuncs.WriteSeparatorLine("Thanks for trying out our first OOP application!");
             myFuncs.PauseProgram();
->>>>>>> 2645ef0776f2bfbc620f64cdf6b9863973650ab7:Unit-4-Intro-To-Object-Oriented-Programming/Day-5-Inheritance-Example-V1/Day-5-Inheritance-Example/Program.cs
+            
         }
     }
 }
