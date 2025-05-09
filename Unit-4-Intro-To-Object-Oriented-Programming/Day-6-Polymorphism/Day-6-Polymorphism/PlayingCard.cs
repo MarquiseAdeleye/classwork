@@ -142,10 +142,14 @@ namespace Day_6_Polymorphism
             //     string, bool, objects - Use System GetHashCode method
             return _cardValue * 17 + _cardColor.GetHashCode() + _cardSuit.GetHashCode();
         }
-
+//The virtul keyword idetifies this is a Polymorphic method in the base class
+//subclasses may override this method to implement Polymorphism for their class
+//Reminder: this represents the object used to run the method (to left of the .method())
+// .Writline wants a string so it will automatically call the .ToString() for this class
+// to get the string representation of an object of the class
         public virtual void ShowCard()
         {
-            Console.WriteLine(this);
+            Console.WriteLine(this);// Display the string representation of an object of this classs
         }
     }  // End of PlayingCard class
 } // End of namespace
