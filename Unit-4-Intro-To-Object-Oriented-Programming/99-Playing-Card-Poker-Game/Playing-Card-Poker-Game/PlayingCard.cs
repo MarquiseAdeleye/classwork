@@ -44,6 +44,8 @@ public class PlayingCard
      * protected so subclasses may access is OK since they are constants and cannot be changed
      * 
      * static so it can be referenced using the class name. ie. no object required
+     *
+     * readonly so it can't be changed - const is OK too
      ***************************************************************************************************/
 
     protected static readonly CardValue DEFAULTCARDVALUE = CardValue.Joker;   // enum data-type for value
@@ -208,7 +210,7 @@ public class PlayingCard
                 this._color = CardColor.Red;
                 break;      // break is required so we don't fall through to the next case - we exit the switch
             default:
-                this._color = DEFAULTCOLOR;  // no break is needed here because it is the last case
+                this._color = DEFAULTCOLOR;  // break is needed here because it is the last case
                 break;
         }
     }

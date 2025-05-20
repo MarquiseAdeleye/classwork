@@ -35,14 +35,29 @@ public class Person
   * 3 ways to define getters and setters shown
   *****************************************************************************/
  
+ 
+ // Automatically implemented property
+ // Convenient and common - no special processing you want for getter/setter
+ // Automatically defines a private variable for you (you don't need to declare it)
+ // USe the Property Name to access the data if your set up a private variable on your own
  public string Name { get; set; }   // Use property name to assign values
 
+ 
+ // Full property syntax or block-bodied syntax
+ // Usually/should have a private variable defined that it represents
+ // you provide the processing for the getter/setter
+ // flexible allows for custom logic in the getter/setter
+ // Fairly common
  public int HeightInInches
  {
      get { return _heightInInches; }
      
-     set { _heightInInches = value; }
+     set { _heightInInches = value; } // value is keyword that represents the value pass to setter
  }
+ 
+ 
+ // Expression-bodied property
+ // More concise and formal (less code, can be confusing)
  
  public double WeightInPounds
  {
@@ -59,11 +74,16 @@ public class Person
  public string Gender
  {
      get => _gender;
+     // For objects you can have C# throw and exception if nul
+     // ?? means if the odject value is null
+     // ?? throws is optional
      set => _gender = value ?? throw new ArgumentNullException(nameof(value));
  }
 
  /***************************************************************************************
   * Constructors - Initialize objects of the class
+  *
+  * Note use of property name to initialize - less opportunity for error
   **************************************************************************************/
  public Person(string name, int heightInInches, double weightInPounds, int age, string gender)
  {
@@ -84,7 +104,21 @@ public class Person
   **********************************************************************************/
  public override bool Equals(object? obj)
  {
-     return base.Equals(obj);  // performs default base default
+    // return base.Equals(obj);  // performs default base behavior which we don't want
+     //Write what make the two person object equal?
+     //same name
+     //
+     Person otherPerson = (Person)obj; // We get a generic object as a parameter
+                                       // so we have to create a object of this 
+     if (this.Name == otherPerson.Name
+         &&this.HeightInInches == otherPerson.HeightInInches
+         && this.WeightInPounds == otherPerson.WeightInPounds
+         && this.Age == otherPerson.Age
+          && this.Gender == otherPerson.Gender)
+     {
+         return true;
+     }
+     return false;
  }
 
  // Override the default GetHashCode method:  public int GetHashCode()
