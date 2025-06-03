@@ -1,5 +1,7 @@
-﻿// namespace Playing_Card_Poker_Game;  // C# groups things in namespaces
+// namespace Playing_Card_Poker_Game;  // C# groups things in namespaces
 package PlayingCard; // Java groups things in package - package name must match the folder name for the package
+
+import java.util.Objects;
 
 public class PlayingCard
 {
@@ -14,7 +16,7 @@ public class PlayingCard
      *        allows the assign of a word to a constant value to limit the values in a variable
      *        make it easier to code (get rid using "magic" numbers to represent data
      *        used as data-types - define variable as enums, parameters as enum - anywhere a variable is allowed
-     *        C# will ensure that an enum type only has values valid for the enum (we don't have to check)
+     *        Java will ensure that an enum type only has values valid for the enum (we don't have to check)
      *        enum are actual integer values starting at 0 inside C#
      ***************************************************************************************************/
     // Making the enum public allows application programs to use the enum as constant too
@@ -77,7 +79,7 @@ public class PlayingCard
     {
         value = DEFAULTCARDVALUE;
         suit = DEFAULTSUIT;
-        SetColor(suit);     // Set color in object based on suit - NOTE: suit must have a value before this
+        setColor(suit);     // Set color in object based on suit - NOTE: suit must have a value before this
         faceUp = false;
     }
     /***************************************************************************************************
@@ -86,7 +88,7 @@ public class PlayingCard
     public PlayingCard(CardValue value, CardSuit suit)
     {
         this.value = value;   // Set value in object to value passed as argument
-        SetColor(suit);        // Set color in object based on suit passed as argument
+        setColor(suit);        // Set color in object based on suit passed as argument
         this.suit = suit;     // Set suit in object to suit passed as argument
         faceUp = false;
     }
@@ -95,8 +97,9 @@ public class PlayingCard
      ***************************************************************************************************/
     public PlayingCard(int value, CardSuit suit)
     {
-        this.value = SetValue(value); // Set value in object based on int value passed as argument
-        SetColor(suit);               // Set color in object based on suit passed as argument
+        //to convert int to enum
+        this.value = setValue(value); // Set value in object based on int value passed as argument
+        setColor(suit);               // Set color in object based on suit passed as argument
         this.suit = suit;             // Set suit in object to suit passed as argument
         faceUp = false;
     }
@@ -141,16 +144,25 @@ public class PlayingCard
     }
 
     /***************************************************************************************************
+     * C#: Method names are in PascalCase(start with uppercase
+     *      Opening brace for method is on the next line as the method signature
+     * Java: Method names are in camelCase(start with lowercase)
+     *       Opening brace for method is on the same line as the method signature
+     ***************************************************************************************************/
+
+
+    /***************************************************************************************************
      * additional getter and setter methods
      ***************************************************************************************************/
 
     // Return the integer value assigned to the card - value is an enum called CardValue
-    public int GetIntValue()
-    {   // Return integer value of CardValue enum in a PlayingCard 
-        return (int) value;  // cast the enum to an int to get its integer value
+    public int getIntValue()
+    {   // Return integer value of CardValue enum in a PlayingCard
+        //return (int) value;  //C#: cast the enum to an int to get its integer value
+        return value.ordinal(); // Java: .ordinal() returns the ordinal value of the enum constant
     }
 
-    public CardValue SetValue(int ivalue)
+    public CardValue setValue(int ivalue)
     {  // Set the CardValue based on an int value
         /***********************************************************************************************************
          * switch is alternative to a a set of nested if-then-else-if statements
@@ -170,11 +182,11 @@ public class PlayingCard
          *                    not required if case issues a return statement at end of case
          *      default: - if none of the cases were true
          *           statement-to-run if none of cases were true
-         *           break; - exit switch - re   required on default case even though it is last
+         *           break; - exit switch - C#   required on default case even though it is last
+         *           Java: does not require a break on a default case
          * }
          *************************************************************************************************************/
-        switch (ivalue)                  // Check ivalue
-        {
+        switch (ivalue)  {                // Check ivalue
             case 1:                      // if ivalue == 1
                 return CardValue.Ace;    //     do this
             case 2:                      // if ivalue == 2
@@ -206,11 +218,9 @@ public class PlayingCard
         }
     }
 
-    private void SetColor(CardSuit suit)
-    {  // Set the color based on the suit of the object
+    private void setColor(CardSuit suit) {  // Set the color based on the suit of the object
         // if (suit == cardSuit.Spade or suit == cardSuit.Club) - stack cases does this
-        switch (suit)
-        {
+        switch (suit) {
             case CardSuit.Spade:       // Stacking cases simulates an equal or condition
             case CardSuit.Club:
                 this.color = CardColor.Black;
@@ -220,73 +230,59 @@ public class PlayingCard
                 this.color = CardColor.Red;
                 break;      // break is required so we don't fall through to the next case - we exit the switch
             default:
-                this.color = DEFAULTCOLOR;  // break is needed here even through its last case
+                this.color = DEFAULTCOLOR;  // break is optional here in Java
                 break;
         }
     }
 
-    public void Flip()  // reverse if card is face up or down
-    {
+    public void flip(){  // reverse if card is face up or down
+
         faceUp = !faceUp;
     }
 
     /***************************************************************************************************
      * Object super class overrides
      *
-     *      ToString()    - represent class data as a String
-     *      Equals()      - determine if contents of two object of the class are equal
-     *      GetHashCode() - generate hash code based on unchanging data members
+     *      toString()    - represent class data as a String
+     *      equals()      - determine if contents of two object of the class are equal
+     *      hashCode() - generate hash code based on unchanging data members
      * 
      ***************************************************************************************************/
     // Ask compiler to assure this is a valid super class override
-    public override string ToString()
-    { // Return a String representation of the object
-        return $"Playing Card: Value={_value}({(int)_value})\tSuit={_suit}\tColor={_color}\tFace Up={_faceUp}";
+
+    @Override
+    public String toString() {
+        return "PlayingCard{" +
+                "value=" + value +
+                ", color=" + color +
+                ", suit=" + suit +
+                ", faceUp=" + faceUp +
+                '}';
     }
 
-    // Ask compiler to assure this is a valid super class override
-    public override bool Equals(object otherObject)
-    {   // Compare Two PlayingCards for equality - note generic Object parameter
-    
-        if (otherObject == this)
-        {   // if object being compared to itself
-            return true;             // objects are equal
-        }
-        else
-        {
-            // 'is' returns true if an object is an instance of the class specified
-            if ((otherObject is PlayingCard))
-            {   // If the object being compared to is the same class as object 
-                PlayingCard otherCard = (PlayingCard)otherObject; // Define a PlayingCard object from object being compared to
-                return (this.value == otherCard.value && this.color == otherCard.color && this.suit == otherCard.suit);
-            }
-            return false;    // Required so IDE realizes all logic paths are closed
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof PlayingCard that)) return false;
+        return faceUp == that.faceUp && value == that.value && color == that.color && suit == that.suit;
     }
-    // Ask compiler to assure this is a valid super class override
-    public override int GetHashCode()
-    {   // Generate a hash Code for object if C# needs One e.g. for a HashMap
-        // A hash code is a unique value representing an instance of an object
-        // It is recommended to use member variables whose value is unlikely to change
-        //
-        // The HashCode class has a method called .Combine()
-        //     which will generate a hash code from the values in the variable you send it
-        //
-        // The same variables used to determine object equality should be used
-        //     when generating a hash code
-        return HashCode.Combine(value, suit, color);
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value, color, suit, faceUp);
     }
 
     /***************************************************************************************************
      * Miscellaneous class methods
      ***************************************************************************************************/
+    //C# use console.WriteLine() to display a string
+    //Java use System.out.println() to display a string
     public void ShowCard()
     {   // Display an instance of a PlayingCard
-        Console.WriteLine(this.ToString());
+        System.out.println(this.toString());
     }
 
     public void ShowCardWithHash()
     {   // Display an instance of a PlayingCard with HashCode
-        Console.WriteLine(this.ToString() + "\thashCode: " + GetHashCode());
+        System.out.println(this.toString() + "\thashCode: " + hashCode());
     }
 }  // End of PlayingCard Class
