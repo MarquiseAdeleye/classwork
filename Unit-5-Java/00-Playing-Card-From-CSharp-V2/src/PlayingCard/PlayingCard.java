@@ -171,6 +171,9 @@ public class PlayingCard
                 '}';
     }
 
+    // Java: @Override asks the compiler to verify the ovverride is correct
+    //       @Override is optional in Java - good idea to code it to be sure your override is correct
+    // C#: override keyword is used to override a method in a derived class
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof PlayingCard that)) return false;
