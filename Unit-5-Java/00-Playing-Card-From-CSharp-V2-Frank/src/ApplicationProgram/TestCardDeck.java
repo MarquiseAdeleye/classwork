@@ -3,10 +3,7 @@ package ApplicationProgram;
 import CardDeck.CardDeck;
 import PlayingCard.PlayingCard;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class TestCardDeck {
 //
@@ -77,6 +74,49 @@ public class TestCardDeck {
         for(PlayingCard discardPileCard : discardPile) {
             System.out.println(discardPileCard);
         }
+/*
+Demonstrae the use of Java Set Class
 
+A set is an arraylist that will allow duplicates
+
+since a set is a subclass of collections
+ */
+        List<String> names = new ArrayList<>();
+
+        names.add("Frank");
+        names.add("Aaron");
+        names.add("Jay");
+        names.add("frank");
+
+        //Foreach in java syntax
+        for(String aName : names){
+            System.out.println(aName);
+}
+            //Add duplicate name
+            names.add("Frank");
+System.out.println("---The duplicate name---");
+            for(String aName : names){
+                System.out.println(aName);
+        }
+//Define a Set class object as a HashSet
+        //HashSet - Stores the entries in an unknow sequence (by hashCode)
+        //
+         //TreeSet will store in alphabetical order
+        //
+         //LinkedHashSet stores entries in entry sequence just like arraylist still no duplicates
+        Set<String> nameSet = new HashSet<>();
+
+        nameSet.add("Frank");
+        nameSet.add("Aaron");
+        nameSet.add("Jay");
+        nameSet.add("frank");
+        nameSet.add("Frank");
+
+        System.out.println("The duplicate name was not stored in Set");
+
+        System.out.println("---The Set---");
+        for(String aName : nameSet){
+            System.out.println(aName);
+        }
     } // End of main() method
 } // End of TestPlayingCard CLass
