@@ -1,0 +1,57 @@
+<!-- This is how you make a comment in HTML-->
+ <!-- Anything that starts with less than sign exclamation point is a directvie to the browser -->
+<!-- a directive to the browser provides info the browser might need about the page-->
+<!DOCTYPE html> <!--Browser directive to tell it this file contains HTML - optional-->
+<!--an HTML file contains HTML tags and browser directives (Directives are not displayed)-->
+<!--an HTML tag describes an element to be displayed when the page is given to the browser-->
+<!--an HTML element has a start tag and an end tag -->
+<!-- <start-tag> </end-tag> -->
+
+<!-- tags are enclosed in <> with the end-tag having the name: /start-tag -->
+
+<!-- an element is simply something on a web page-->
+<html lang="en"> <!-- container for all the HTML for the page & the language of the page-->
+   <!--Connnect this html to the CSS gile that has it's styling-->
+   <link rel="stylesheet" href="myStyles.css"/>
+
+
+<head> <!--informaiton for the browser needed for the page - NOT displayed-->
+        <!--The informaiton in  the head tag is rarely changed-->
+        <!--the meta (Informaiton about data) tag provides information to the browser-->
+        <meta charset="UTF-8"> <!---Tells the browser what character set to use for the page-->
+        <!-- The viewport is the displayable part of the browser screen-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--The title element is probably the only thing you change in th e<head>-->
+        <title>Marquise's Page</title><!--What is displayed on the browser tab for the page-->
+    </head>
+    <body><!--containing for the primary content of the page- what is displayed in the browser-->
+        <header><!--COntains whatever you want at the top of the page-->
+            <!-- HTML provide header tags to display data bigger thatn normal text-->
+             <!--header tags: h1 (biggest) to h6 (smallest)-->
+             <h1>This is the h1 header</h1>
+             <h4> This is the h4 header</h4>
+
+
+        </header>
+        <nav><!--The nav section contains navigation links for the page-->
+
+        </nav>
+        <main><!--Where you convey the main content of the page-->
+            <!-- <p> - Paragraph tag puts content on a separate line instead of wrapping the text-->
+                <div><!--Allows organization of information on page(optional)-->
+                    <!--AND creates a stylable unit within the page-->
+                    <p>Put some stuff here</p>
+                    <p>You want displayed</p>
+                     <p>on the page</p>
+                 </div>
+        </main>
+        <section><!--represents a major part of a webpage (optional)-->
+            <p> This is in a section</p>
+
+        </section>
+        <footer><!--Stuff you want on the bottom of the page-->
+            Copyright 2025 - Bootcamps R Us
+        </footer>
+       
+    </body>
+</html> <!--end-tag for the HTML element-->

@@ -1,0 +1,13 @@
+/* THis is a comment in CSS*/
+/*CSS defines formatting for the page*/
+/*THe general format: selector {
+                                CSS rule;
+                                CSS rule;
+                               }
+*/
+/*for now we wil use html tags as selectors*/
+html{ /*style all the elements within the html tag*/
+
+    background-color: blueviolet;
+
+}
