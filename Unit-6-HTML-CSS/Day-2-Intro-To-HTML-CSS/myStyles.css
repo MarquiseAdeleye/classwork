@@ -5,8 +5,70 @@
                                   css rule;
                                 }
 */  
-/* for now we use html tags as selectors */
+/* for now we use html tags as selectors 
+
+# - id="" used to style specific element
+. - class="" use to style and specific group of elements
+*/
 
 html { /* style all the elements within the html tag */
-    background-color: lightgoldenrodyellow;
+    background-color: rgb(255, 255, 94);
+    font-size: 20px;
+    color: rgb(12, 12, 190);
+} 
+
+h2{ /* style all the h2 tags*/
+color: rgb(21, 70, 21);
+}
+
+footer{/* style all the stuff in the footer*/
+color: brown; /* make the text brown*/
+margin-top: 10pt;/* move the top down 50px*/
+text-align: center;
+}
+
+p{ /*style the paragraph tag*/
+  color: plum;
+  font-size: 25px;
+}
+
+#p2{/*style all elements with id="p2"*/
+color: blueviolet;
+}
+
+div{
+  background-color: rgb(238, 0, 255);
+}
+
+#youssef{
+  background-color: black;
+}
+
+.normal{/*you want to style all elements with class="normal"*/
+background-color: aquamarine;
+}
+
+ol{
+  color: crimson;
+  font-style: italic;
+  list-style: square;
+  border-style: solid;
+  border-color: cyan;
+  border-width: 10pt;
+  border-radius:20px ;
+}
+
+table{
+  border: 2px solid blue;
+}
+
+td, th{
+  border: 1px dashed palevioletred;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+}
+
+th{
+  color: rgb(69, 125, 12);
 }
