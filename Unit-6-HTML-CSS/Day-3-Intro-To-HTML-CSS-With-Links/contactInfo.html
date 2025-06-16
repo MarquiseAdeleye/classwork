@@ -11,7 +11,11 @@
     <header>
         <h1>Contact Information Form</h1>
         <h3>Please enter your information and click submit</h3>
+        <link rel="stylesheet" href="contactInfo.css">
     </header>
+    <nav> <!-- The anchor tag <a> provides links to other resources-->
+        <a href="index.html">Retreat to Home Page</a>
+    </nav>
     <main> <!-- contains the primary content of the page                    -->
            <!-- We use and HTML form to interact with a used                -->
            <!-- The form can send the data to an API or JavaScript program  --> 
@@ -37,10 +41,38 @@
 
             <!-- the <label> tag provides information/prompt to the user on what to enter-->
             <!-- <label> has one attribute:  for="id-of-the-associated-input-control"    -->   
-            <div> <!-- Ask for for the person's name -->     
+            <div> <!-- Ask for the person's name -->     
                 <label for="nameField">Enter your full name: </label>
                 <input type="text" id="nameField" name="personsName"/>
-            </div>    
+            </div> 
+
+            <!--The label for="" needs to match the id=""-->
+            <div> <!-- Ask for the person's city where they live -->     
+                <label for="cityField">Enter the city where you reside: </label>
+                <input type="text" id="cityField" name="currentCity"/>
+            </div>
+
+            <div> <!-- Ask for the person's favorite number using a number picker-->     
+                <label for="favNumField">Please choose your favorite number: </label>
+                <input type="number" id="favNumField" name="favoriteNumber"/>
+            </div>
+            
+            <div> <!-- Ask for the person's favorite color using a color picker-->     
+                <label for="favColorField">Please choose your favorite color: </label>
+                <input type="color" id="favColorField" name="favoriteColor"/>
+            </div>
+            
+            <div> <!-- Ask for the person's next birthday using a date picker-->     
+                <label for="nextBdayField">Please choose your next birthday date             : </label>
+                <input type="date" id="nextBdayField" name="nextBirthday"/>
+            </div>
+
+
+
+            <!--Define a submit button for the form-->
+            <!--We nee a submit buttom to send the form button to an API or JavaScript-->
+            <input type="submit" value="Click Here To Submit"/>
+
            </form>
 
     </main>

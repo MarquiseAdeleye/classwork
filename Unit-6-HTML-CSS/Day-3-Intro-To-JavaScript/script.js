@@ -7,11 +7,32 @@
 /**
  * Functions start with the word function.
  * They don't have a return type and the naming convention is camel-case.
+ * 
+ * We test the code using the console in inspect
  */
 function variables() {
   // Declares a variable where the value cannot be changed
+
+  const aVariable = 42;
+  //console.log() is going to display date on the console like Console.WriteLine()
+  //JavaScript supports interpolation to construct strings similar to C#
+  console.log(`The value in aVariable is: ${aVariable}`);
+
+
   // Declares a variable those value can be changed
+
+  let itBe = 87.4;
+  console.log(`The value in itBe is: ${itBe}`);
+  itBe = 'PIZZA';
+  console.log(`The value in itBe is: ${itBe}`);
+
   // Declares a variable that will always be an array
+  let stuff = ["things", 'stuff', "Pizzaz", 54];
+   console.log(`The value in stuff is: ${stuff}`);
+   console.log(stuff);//Display with dropdown menu
+   console.table(stuff);//display as table
+
+  
 }
 
 /**
