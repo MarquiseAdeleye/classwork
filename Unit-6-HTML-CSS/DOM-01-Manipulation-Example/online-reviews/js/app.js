@@ -60,7 +60,7 @@ function setPageDescription() {
 function displayReviews() {
   const main = document.getElementById('main');  // Get to the div that will hold the reviews
 
-  reviews.forEach((aReview) => {
+  reviews.forEach((aReview) => { //Loop through the array of reviewsk
     const container = document.createElement('div');  // Create a div hold the review
     container.setAttribute('class','review');         // add class='review' to the div
     addReviewer(container, aReview.reviewer);         // Send the method the parent and data to add

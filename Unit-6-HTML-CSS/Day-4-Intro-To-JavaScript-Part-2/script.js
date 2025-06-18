@@ -30,6 +30,7 @@ function variables() {
   itBe = 1776;
   console.log(`The value in itBe is: ${itBe}`)
 
+
   // Declares a variable that will always be an array
   let stuff = ["things", 'Kevin', "Hello", 774.6]
   console.log(`The value in stuff is: ${stuff}`) // Display teh array as a variable - elements separated by ,
@@ -37,6 +38,9 @@ function variables() {
   console.table(stuff)
 
 }
+
+var someVariable = 10; //using var to esatblish a variable is differnt from using let
+
 
 /**
  * Functions can also accept parameters.
@@ -51,8 +55,8 @@ function printParameters(param1, param2) {
 
 /**
  * Compares two values x and y.
- * == is loose equality
- * === is strict equality
+ * == is loose equality - values are the same, but types don't matter
+ * === is strict equality - values and the type must be the same
  * @param {Object} x
  * @param {Object} y
  */
@@ -66,6 +70,7 @@ function equality(x, y) {
 
 /**
  * Each value is inherently truthy or falsy.
+ * Every value if used in a conditional statement will be true or false
  * false, 0, '', null, undefined, and NaN are always falsy
  * everything else is always truthy
  * @param {Object} x The object to check for truthy or falsy,
@@ -79,18 +84,21 @@ function falsy(x) {
 }
 
 /**
- *  Objects are simple key-value pairs
+ * JavaScript Objects are NOT the same as Object-Oriented Objects
+ * 
+ *  Objects are simple key-value pairs - a way to structure data
     - values can be primitive data types
     - values can be arrays
     - or they can be functions
+    -JSON is the Java Script Object Notation
 */
 function objects() {
-  const person = {
-    firstName: "James T.",
-    lastName: "Kirk",
-    age: 42,
-    employees: [
-      "Spock",
+  const person = { //JavaScript objects are enclosed in {}
+    firstName: "James T.", //attributes are specified with name : value
+    lastName: "Kirk", //multiple values are separated by commas
+    age: 42,         //numbers are coded as human, non-numbers are inside "" or ''
+    employees: [ //Arrays are enclosed in []
+      "Spock",  //elements in the Arrays are separated by commas
       "McCoy",
       "Uhura",
       "Scotty"
@@ -98,10 +106,21 @@ function objects() {
   };
 
   // Log the object
+  console.log(person); //this will display the data in a pretty easy to read format
+  console.log(`person contains: ${person}`); // this doesn't display the data
+  console.table(person); // formatted display
+  // Log the first and last name - accessing the attributes in an object: objectName.attibuteName
+  console.log(`Person's first name: ${person.firstName}`);
+  console.log(`Person's last name: ${person.lastName}`);
 
-  // Log the first and last name
+  // Log each employee - iterate through an array of objects
+  //Just like in C# and Java we use a for-loop to go through an array
 
-  // Log each employee
+  for(let i=0; i < person.employees.length; i++){
+    console.log(`Employee #${i+1}: ${person.employees[i]}`);
+  }
+
+  
 }
 
 /*
@@ -118,7 +137,7 @@ function Add(num1, num2) {
   return num1 + num2;
 }
 
-function Add(num1, num2, num3) {
+function Add(num1, num2, num3) { //This function overrides any previous function of the same name Add()
   return num1 + num2 + num3;
 }
 
@@ -162,4 +181,52 @@ function stringFunctions(value) {
         - trim()
         - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
     */
+
+
 }
+/*
+Array Manipulation Functions
+*/
+
+function arraryFunctions(){
+let stooges = ["Moe", "Larry", "Curly"];
+console.table(stooges);
+
+// JavaScript array is like a List in C# or ArrayList
+
+stooges.push("Shemp"); //add element to end of array
+console.table(stooges);
+
+
+stooges.unshift("Curly Joe"); //Add element to the beginning
+console.table(stooges);
+
+//Insert elements starting at index 3
+stooges.splice(3,0, "Groucho", "Chico", "Harpo");
+console.table(stooges);
+
+//Delet element at indeex 3
+stooges.splice(3,1);
+console.table(stooges);
+
+stooges.splice(3,2);
+console.table(stooges);
+
+//Delete the first element
+stooges.shift(); //Remove the first element and return it
+console.table(stooges);
+
+stooges.pop();
+console.table(stooges);
+
+let marxBros = [
+  "Groucho", "Chico", "Harpo"
+]
+
+let oldFunnyGuys = stooges.concat(marxBros);
+console.table(oldFunnyGuys);
+
+
+
+}
+// End of the JavaScript file
