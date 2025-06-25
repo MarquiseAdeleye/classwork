@@ -38,6 +38,7 @@ const reviews = [
  */
 function setPageTitle() {
   const pageTitle = document.getElementById('page-title'); // Get a pointer to 'page-title' element
+  //Go to the class "name" and set it to the variable productName
   pageTitle.querySelector('.name').innerHTML = productName;       // change the item with class=name to have what's in name
 //  Alternative Technique
 //  const titleWord = pageTitle.querySelector('.name');
@@ -48,6 +49,7 @@ function setPageTitle() {
  * Add our product description to the page.
  */
 function setPageDescription() {
+  // go to the class "description" and set it to the description variable
   document.querySelector('.description').innerText = description; // Get to the tag with the class 'description'
                                                                   // assign the value in variable description
 }
@@ -81,7 +83,7 @@ function displayReviews() {
  */
 function addReviewer(parent, name) {
 const reviewer = document.createElement('h4');  // Create an h4 element
-reviewer.innerText = productName;               // assign the productproductName to the h4 tag
+reviewer.innerText = name;               // assign the productproductName to the h4 tag
 parent.appendChild(reviewer);                   // add the reviewer as a child to the parent
 }
 
