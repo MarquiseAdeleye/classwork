@@ -1,4 +1,4 @@
-// This contains the Typescript code for the component
+              // This contains the Typescript code for the component
 // It defines several things Angular needs to know about the component
 import { Component }    from '@angular/core';   // Give me access to basic Angular features
 
