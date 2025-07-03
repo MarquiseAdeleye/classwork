@@ -1,6 +1,9 @@
 /***************************************************************
  This is service
 
+                                                     folder    services name             
+ it was initially creaed using: ng generate service /services/student
+
  A service is a set of processing to facilitate the retrieval
  and storage of data - typically in a persistent source (saved)
 
@@ -10,6 +13,16 @@
 
  The data from this service is just an array in memory
 
+ a service must be dependency injectable by angular
+
+ Dependency Injectable means ANgular is allowed to automatically instantiate it and pass it to function
+
+ 
+ To make a service Dependency Injectable:
+    1. Import Injectable from Angular Core feature
+    2. Include the @Injectable object with the providedIn property se to 'root'
+
+ If you have angular generate the service it does both of those things for you
 *******************************************************************/
 
 import { Injectable}   from '@angular/core';              // Access Angular Dependency Injection
@@ -18,11 +31,14 @@ import { StudentInfo } from '../interfaces/studentInfo';  // Using the StudentIn
 @Injectable({         // This service may be Dependency Injected into any Angular process if needed
   providedIn: 'root'
 })
+// We export the service so other can use it like Angular
 export class StudentService {
 
  // A module contains data and methods/functions for processing that data
  
+   // A service usually keeps a copy of the data insided itself regardless of the source
    // Source of data for calls to retrieve the data - initialized in the code
+   //private limits access to functions in this class
    private listOfStudents : StudentInfo[] = []  // An array of StudentInfo objects
  
    // a constructor is method to initialized data defined in the module

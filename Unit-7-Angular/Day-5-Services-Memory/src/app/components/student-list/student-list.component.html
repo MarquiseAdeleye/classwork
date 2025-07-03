@@ -14,6 +14,7 @@
         <th>Cohort</th>
         <th>Date</th>
     </tr>
+    <!-- studentlist is an array the .ts for this component-->
     <tr *ngFor="let aStudent of studentList">
         <td id="studNum">{{aStudent.studentNumber}}</td>
         <td>{{aStudent.firstName}}</td>
@@ -23,6 +24,11 @@
        
 </tr>    
 </table>
+<!-- routerLink= attribute in any input control-->
+<!-- go to this URL path when clicked-->
+<!-- CLicking this button tells the ANgular router to -->
+<!--follow the path /addstudent-->
+<!-- (paths are stored app.routes.ts file)-->
 <input type="button" 
        id="addStudentButton" 
        value="Add Student" 
