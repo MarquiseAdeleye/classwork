@@ -22,6 +22,8 @@ export class PetService {
     this.petData.push({name: 'Felix', type: 'Snake', gender: 'Male'})
     this.petData.push({name: 'Felix', type: 'Snake', gender: 'Male'})
     this.petData.push({name: 'Felix', type: 'Snake', gender: 'Male'})
+
+    this.petData.splice
   }
   //Provide a function to return the array of data
   getPetData() : PetInfo[]{
