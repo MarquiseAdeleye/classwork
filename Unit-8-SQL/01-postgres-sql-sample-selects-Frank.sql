@@ -119,3 +119,23 @@ select gambler_name, monthly_salary
 select gambler_name, monthly_salary
   from gambler
  where monthly_salary between 2000 and 10000; 
+
+ --
+ --Show the gambler names in alphabetical order
+ select gambler_name 
+ from gambler 
+ order by gambler_name;
+ --
+ --Show the gambler int reverse alphabetical order
+select gambler_name 
+ from gambler 
+order by gambler_name DESC;
+ --
+ -- Show everyones annual salary
+ -- We can do arithmetic on a select to create a new column (derived column)
+ -- Derived columns do not have names
+ -- The AS phrase will add a column name
+ --
+select gambler_name
+ , monthly_salary * 12 as "Annual Salary"
+ from gambler;
