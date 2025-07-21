@@ -182,7 +182,7 @@ group by continent   -- perform the aggregate function for each unique continent
 -- Show the average life expectancy in the world for each continent
 -- ONLY columns used in the GROUP BY are allowed yto be included on the SELECT
 select    continent
-  --     , region  -- region is not allowed because it is not included in a group by
+   --    , region  -- region is not allowed because it is not included in a group by
          , avg(lifeexpectancy)  -- a column used in the GROUP BY may be coded on the SELECT
   from   country
 group by continent   -- perform the aggregate function for each unique continent - one row in result for each continent

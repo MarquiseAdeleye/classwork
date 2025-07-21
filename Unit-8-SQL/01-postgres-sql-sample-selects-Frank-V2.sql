@@ -25,6 +25,20 @@
 --        IN(list-of-values)      -- alterative to a series of = OR
 --        NOT IN(list-of-values)  -- alterative to a series of != AND
 --        BETWEEN value AND value
+--
+-- Null in relational data/SQL means unknown (I don't know value)
+-- Nulls require special treatment in SQL
+--
+-- Cannot use any of conditional operators on a null value
+-- column = null is not valid
+-- column < null is not valid
+-- column != null is not valid
+--
+-- any operstion with a null is a null
+--
+-- IS NULL --special predicate for checking to see if column is null
+-- IS NOT NULL -- special predicate checking to see if column is not null
+--
 --        IS NULL          -- special predicate for checking to see if column is null 
 --        IS NOT NULL      -- special predicate for checking to see if column is not null 
 --        LIKE    (use wildcards: % means 0 to any number of any characters
@@ -183,7 +197,26 @@ select gambler_name as Name
  where (monthly_salary * 12) > 500000  -- only include those with Annual Salary > 500000
 order by Annual_Salary desc 
 ;
-
-
+--
+--Show names and address
+--
+select gambler_name, address
+ from gambler
+ where address is null
+ order by address
+;
+--
+-- Show me gambele with an m in their name
+--
+select gambler_name
+from gambler
+where gambler_name like '%d%' -- case sensitive like
+;
+--
+-- Show uniqe casino names in the host table
+--
+select distinct casino_name --not showing duplicates because of distinct
+from host --distinct will give info in ascending order
+;
 
 

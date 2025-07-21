@@ -9,6 +9,8 @@
 -- (actually it's none of those)
 --
 -- Each database manager has a default display format (USA, EUR, JIS)
+--
+--When coding a date as a literal you can use any format
 
 select birth_date, gambler_name   -- columns in the result
   from gambler                     -- table with the rows 
