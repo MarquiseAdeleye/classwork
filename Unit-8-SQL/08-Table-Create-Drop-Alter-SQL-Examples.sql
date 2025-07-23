@@ -64,4 +64,51 @@
 --      ALTER TABLE IF EXISTS table-name RENAME TO new-table-name  - Successful if table exists or not
 --
 ---------------------------------------------------------------------------------------------------------------
-
+--
+--Drop any existing versions of the table we are creating
+--
+drop table if exists pet_types;
+drop table if exists owner;
+drop table if exists pet;
+--Create the Pet_Types table
+-- (Parent table to pet - must be created before dependents)
+--
+CREATE TABLE pet_types
+(
+--  Column name data type nullness
+	pet_type_id   serial    not null,
+	name         char(15)   not null,
+	species     varchar(50) not null,
+	CONSTRAINT pk_pet_type_id PRIMARY KEY (pet_type_id)
+)
+;
+--
+-- Creat owner table
+-- parent table to owner
+--
+Create table owner
+(
+owner_id   serial  not null,
+last_name  varchar(50)  not null,
+first_name varchar(50)  not null,
+address    varchar(100),
+city       varchar(20),
+state      char(2),
+CONSTRAINT pk_owner_id PRIMARY KEY (owner_id)
+)
+;
+--
+-- Create the pet table
+-- (Dependent table)
+--
+Create table pet
+(
+pet_id serial not null,
+name   char(250) not null,
+pet_type_id  integer not null, --mathc to an exist number since serial create new variable
+owner_id   interger  not null,
+CONSTRAINT pk_id PRIMARY KEY (pet_id),
+CONSTRAINT fk_pet_type_id FOREIGN KEY (pet_type_id) REFERENCES pet(pet_type_id),
+CONSTRAINT fk_owner_id FOREIGN KEY (owner_id) REFERENCES owner(owner_id) 
+)
+;
