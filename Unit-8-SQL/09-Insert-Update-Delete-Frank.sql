@@ -130,6 +130,11 @@ INSERT into pet_types
 values('Dalmation', 'Dog'); -- pet_type-id not specified as it is auto generated
 ;
 
+INSERT into pet_types 
+       (name , species) 
+values('Tea Cup', 'Dog'); -- pet_type-id not specified as it is auto generated
+;
+
 -- if you omit column names all non-null column values must be specified
 -- If table has auto-generated you must provide a value for auto-generated columns
 -- (which you don'e want to do since you want the DBMS to generate the value)
@@ -163,24 +168,66 @@ select * from pet_types;
 -- Fella        Frank                  Phoenix   AZ
 -- Corelone     Vito                             NY
 -- Gibbs II     Kevin                   Detroit   MI
-
+DELETE from owner;
 Insert into owner
 (first_name   , last_name , address,  city    , state)
 Values('Frank', 'Fella'   , null  , 'Phoenix', 'AZ'),
       ('Vito' , 'Corelone', null  ,  null    , 'NY'),
-      ('Kevin', 'Gibbs II', null  ,  null    , 'MI')
+      ('Kevin', 'Gibbs II', null  ,  null    , 'MI'),
+	  ('Cam', 'Johnson', null  ,  null    , 'MI'),
+	  ('Jay' , 'Durocher', null  ,  null    , 'MI')
 ;
 select * from owner;
 
+--Insert data into pet table
+DELETE from pet;
+Insert into pet
+(name, pet_type_id, owner_id)
+Values('Jenna',
+(select pet_type_id from pet_types where name = 'German Shepard' and species = 'Dog'),
+(select owner_id from owner where first_name = 'Frank' and last_name = 'Fella')
+)
+;
+
+
+Insert into pet
+(name, pet_type_id, owner_id)
+Values('Princess',
+(select pet_type_id from pet_types where name = 'Tea Cup' and species = 'Dog'),
+(select owner_id from owner where first_name = 'Jay')
+)
+;
 
 
 
--- UPDATE
+
+
+-- UPDATE - change data in the table
+-- Syntax: Update
+--         set column - new value
+--         where where - condition
+--
+--Change Princesses owner_id to kevins owner id
+--
+select * from pet where name = 'Princess';
+update pet
+set owner_id = (select owner_id from owner where first_name = 'Kevin' and last_name = 'Gibbs II')
+where name = 'Princess'
+;
+
+update owner
+set city = 'New York',
+state = 'NY'
+where first_name = 'Frank' and last_name = 'Fella'
+;
 
 
 
 -- DELETE
-
+delete from owner
+where first_name = 'Frank' and last_name = 'Fella'
+;
+select * from owner;
 
 
 -- REFERENTIAL INTEGRITY
