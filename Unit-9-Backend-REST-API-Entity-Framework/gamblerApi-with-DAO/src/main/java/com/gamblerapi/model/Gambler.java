@@ -1,6 +1,12 @@
 package com.gamblerapi.model;
 import java.util.Objects;
 
+
+// In the MVC (Model-View-Controller) Server Architecture
+// the MOdel is the data that is being manipulated
+//The model is a class that representsthe data structure
+//
+ // A POJO/POCO is a simple class that has no special requirements
 public class Gambler {
     /***********************************************************************
      * Gambler Data Model Starter Code

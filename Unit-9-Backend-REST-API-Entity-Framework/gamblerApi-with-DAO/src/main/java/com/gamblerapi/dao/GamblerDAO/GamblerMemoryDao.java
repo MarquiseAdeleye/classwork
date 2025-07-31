@@ -15,12 +15,12 @@ public class GamblerMemoryDao {
     // Data Source
     private List<Gambler> gamblers;   // Reference to data source
 
-    // Constructor
+    // Constructor - Initiallizes the data source
     public GamblerMemoryDao()
     {
         this.gamblers = new ArrayList<Gambler>(); // Instantiate the data source object
 
-        // INitialize tehdata siurce
+        // Initialize the data source
         gamblers.add(new Gambler(12 , "T Judson Smith" , "Los Angeles, CA", 1398.65,    "05/01/1972"));
         gamblers.add(new Gambler(49 , "Dana Imori"     , ""               , 7580.50,    "08/08/1938"));
         gamblers.add(new Gambler(201, "S.Q. Elle"      , "Relational, DA" , 1000000.01, "05/23/1995"));
@@ -33,6 +33,27 @@ public class GamblerMemoryDao {
     public List<Gambler> getGamblers()
     {
         return gamblers;
+    }
+
+    //Method to return Gamblers by ID
+    public Gambler getGamblerById(int id)
+    {
+        for(Gambler aGambler : gamblers){
+            if (aGambler.getId() == id){
+                return aGambler;
+            }
+        }
+        return null;
+    }
+
+    public Gambler getGamblerByName(String name)
+    {
+        for(Gambler aGambler : gamblers){
+            if (aGambler.getName().equalsIgnoreCase(name)){
+                return aGambler;
+            }
+        }
+        return null;
     }
 
 
