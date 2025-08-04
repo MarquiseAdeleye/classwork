@@ -10,10 +10,7 @@ package com.gamblerapi.controller;
 
 import com.gamblerapi.dao.GamblerDAO.GamblerMemoryDao;
 import com.gamblerapi.model.Gambler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -121,10 +118,26 @@ public class GamblerController {
     // The @RequestParam annotation tells the server to
     //      extract the value of the query parameter "name"
     // For now, the name of the parameter in the method must match the name of the query parameter
-    public Gambler getGamblerByName(@RequestParam String name) {
+    public List<Gambler> getGamblerByName(@RequestParam String name) {
         // Call the DAO method to get the gambler by name
         //   and return the gambler it gives us
         return gamblerDao.getGamblerByName(name);
     } // End of getGamblerByName() method
+
+    @PostMapping("/gamblers")
+    public Gambler addToDataSource(@RequestBody Gambler newGambler){
+
+        return gamblerDao.addGambler(newGambler);
+    }
+@PutMapping("/gamblers")
+    public Gambler updateAObject(@RequestBody Gambler updateGambler){
+        return gamblerDao.updateGambler(updateGambler);
+    }
+
+    @DeleteMapping("/gamblers/{id}")
+    public void removeGambler(@PathVariable int id){
+        gamblerDao.zapGambler(id);
+    }
+
 
 }  // End of GamblerController class

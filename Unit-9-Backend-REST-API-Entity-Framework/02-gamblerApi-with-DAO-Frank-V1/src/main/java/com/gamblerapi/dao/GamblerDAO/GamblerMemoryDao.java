@@ -55,18 +55,60 @@ public class GamblerMemoryDao {
     } // End of getGamblerById() method
 
     // Method to retrieve a gambler by name
-    public Gambler getGamblerByName(String name) {
+    public List<Gambler> getGamblerByName(String name) {
         // Loop through the data source to find the gambler with the given name
+        List<Gambler> theGamblers = new ArrayList<Gambler>();
         for (Gambler aGambler : gamblers) {
+
             // Check if the current gambler's name matches the given name
             // Use equalsIgnoreCase to compare names without case sensitivity
             // Note use of getter for current gambler's name
-            if (aGambler.getName().equalsIgnoreCase(name)) {
-                return aGambler; // Return the gambler if found
+            if (aGambler.getName().toLowerCase().contains(name.toLowerCase())) {
+                theGamblers.add(aGambler);
             }
         }
         // Return null if no gambler with the given name is found
-        return null;
+        return theGamblers;
     } // End of getGamblerByName() method
+
+    //Add a Gambler to the data source
+    //1. Need to have a gambler to the data source - a parameter
+    //2. Add the Gambler to the data source
+    //3. If Gambler is added successfully to the data source, return object added
+    //4. If Gambler is not added successfully to data source, return null
+    public Gambler addGambler(Gambler aGambler) {
+        //Use exceptions to determine is works
+        try {
+            gamblers.add(aGambler);
+        }catch (Exception anExceptionBlock){
+            return null;
+        }
+        return aGambler;
+
+    }
+//Update the data source with a Gambler
+    public Gambler updateGambler(Gambler updateGambler){
+
+        //Find Gambler
+        Gambler existingGambler = getGamblerById(updateGambler.getId());
+
+        //remove existing gambler
+        gamblers.remove(existingGambler);
+
+        //Add the updated gambler
+        gamblers.add(updateGambler);
+
+        return updateGambler;
+    }
+
+    public void zapGambler(int gamblerId){
+        Gambler existingGambler = getGamblerById(gamblerId);
+        gamblers.remove(existingGambler);
+
+    }
+
+
+
+
 
 }  // end of GamblerMemoryDao class
