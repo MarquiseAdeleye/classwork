@@ -125,4 +125,19 @@ public class GamblerService {
         }
     }
 
+
+    public Gambler[] searchAGambler(String searchValue){
+        Gambler[] theGamblers = null;
+        try {
+            theGamblers = restTemplate.getForObject(BASE_URL + "gamblers/search?name="+searchValue, Gambler[].class);
+        } catch (RestClientResponseException expceptionObj) {
+            // handles exceptions thrown by rest template and contains status codes
+            System.out.println(expceptionObj.getRawStatusCode() + " : " + expceptionObj.getStatusText());
+        } catch (ResourceAccessException exceptionObj) {
+            // i/o error, ex: the server isn't running
+            System.out.println(exceptionObj.getMessage());
+        }
+        return theGamblers;
+    }
+
 } // End of Gambler service

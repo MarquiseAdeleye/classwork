@@ -94,6 +94,18 @@ public class GamblerApiClientApp {
         System.out.println("Delete of Gambler Id '" + idOfgamblerToDelete + "' "
                             + ((gamblerService.getAGambler(idOfgamblerToDelete)) == null ? "successful" : "failed"));
 
+        //Determine the search string we are going to use
+        //Call the service that will go to the data source with the searched string
+        //Verify the result by displaying what was returned
+
+        String whatWeWant = "Dana";
+
+        Gambler[] foundGambler = gamblerService.searchAGambler(whatWeWant);
+
+        for(Gambler aGambler : foundGambler){
+            aGambler.displayGambler();
+        }
+
 
     } // End of main()
 
