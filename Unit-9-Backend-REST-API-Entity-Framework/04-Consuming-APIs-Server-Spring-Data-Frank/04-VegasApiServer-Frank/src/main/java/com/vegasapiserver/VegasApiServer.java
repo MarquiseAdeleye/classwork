@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 // This is the Server main application
 // This is what started and represents the server in the backend
 @SpringBootApplication
-public class VegasApiServer {
+public class  VegasApiServer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(VegasApiServer.class, args);
